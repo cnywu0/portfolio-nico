@@ -1,4 +1,30 @@
 /* ESTILOS GLOBALES        */
+h1 {
+    color: white;
+    font-family: 'Lato', sans-serif;
+    font-weight: 300;
+    font-size: 25px;
+    text-align: left;
+    margin-left: 250px;
+}
+h2 {
+    color: white;
+    font-family: 'Lato', sans-serif;
+    font-weight: 300;
+    font-size: 20px;
+    text-align: center;
+    margin: 20px;
+    cursor: pointer;
+}
+.nav-buttons {
+    position: absolute;
+    top: 20px;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    z-index: 100;
+}
 html {
   height: 100%;
   /* Degradado de fondo del espacio */
