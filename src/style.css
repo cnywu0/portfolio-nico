@@ -1,252 +1,240 @@
-/* ESTILOS GLOBALES        */
-h1 {
-    color: white;
-    font-family: 'Lato', sans-serif;
-    font-weight: 300;
-    font-size: 25px;
-    text-align: left;
-    margin-left: 250px;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
-h2 {
-    color: white;
-    font-family: 'Lato', sans-serif;
-    font-weight: 300;
-    font-size: 20px;
-    text-align: center;
-    margin: 20px;
-    cursor: pointer;
-}
-.nav-buttons {
-    position: absolute;
-    top: 20px;
-    left: 0;
-    right: 0;
-    display: flex;
-    justify-content: center;
-    z-index: 100;
-}
+
 html {
-  height: 100%;
-  /* Degradado de fondo del espacio */
-  background: radial-gradient(ellipse at bottom, #2a095f 0%, #090A0F 100%);
-  overflow: hidden;
+    scroll-behavior: smooth;
 }
 
 body {
-    margin: 0;
-    padding: 0;
-    height: 100%;
+    font-family: Arial, sans-serif;
+    color: white;
+    background-image: url('images/background.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
 }
 
-/* ANIMACIÓN DE ESTRELLAS  */
-@keyframes animStar {
-  from {
-    /* Las estrellas comienzan en 0 (arriba de la zona visible) */
-    transform: translateY(0px);
-  }
-  to {
-    /* Las estrellas se mueven 2000px hacia arriba para dar el efecto de scroll infinito */
-    transform: translateY(-2000px);
-  }
+
+/* NAVBAR */
+.navbar {
+    width: 100%;
+    padding: 20px 0;
+    position: fixed;
+    top: 0;
+    background: rgba(0,0,0,0.85);
+    z-index: 1000;
 }
 
-#title {
-  position: absolute;
-  top: 50%;
-  left: 0;
-  right: 0;
-  color: #FFF;
-  text-align: center;
-  font-family: 'Lato', sans-serif; 
-  font-weight: 300;
-  font-size: 50px;
-  letter-spacing: 10px;
-  margin-top: -60px;
-  padding-left: 10px;
-  z-index: 100;
-  animation: fadeIn 3s ease 1s forwards;
+.navbar ul {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    gap: 50px;
 }
 
-#title span {
-  font-weight: 400;
-  font-size: 12px;
-  display: block;
+.navbar a {
+    color: white;
+    font-size: 18px;
+    text-decoration: none;
+    position: relative;
+    padding-bottom: 5px;
 }
 
-/* CAPAS DE ESTRELLAS (TOTAL: 300 COORDENADAS ÚNICAS) */
-/* Estilos base para todas las capas de estrellas */
-#stars, #stars2, #stars3 {
-  width: 1px;
-  height: 1px;
-  background: transparent;
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  transform: rotateZ(45deg); 
+.navbar a::after {
+    content: "";
+    width: 0%;
+    height: 2px;
+    background: red;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    transition: 0.3s;
 }
 
-/* --- Estrellas Pequeñas (#stars) - 150 coordenadas (Más veloces) --- */
-#stars {
-  /* LISTA DE COORDENADAS: 150 coordenadas estáticas */
-  box-shadow: 
-    1480px 1867px #FFF, 1279px 136px #FFF, 1858px 1745px #FFF, 345px 233px #FFF, 842px 1761px #FFF, 
-    200px 450px #FFF, 1600px 750px #FFF, 500px 1200px #FFF, 1000px 100px #FFF, 1950px 1450px #FFF, 
-    750px 1900px #FFF, 1300px 600px #FFF, 450px 150px #FFF, 1800px 1050px #FFF, 300px 1650px #FFF, 
-    1500px 350px #FFF, 650px 1150px #FFF, 1100px 50px #FFF, 1700px 1350px #FFF, 50px 850px #FFF,
-    900px 1950px #FFF, 100px 250px #FFF, 1400px 1700px #FFF, 250px 1250px #FFF, 800px 300px #FFF,
-    1650px 950px #FFF, 550px 1850px #FFF, 1200px 400px #FFF, 400px 1400px #FFF, 1850px 650px #FFF,
-    950px 1500px #FFF, 150px 50px #FFF, 1750px 800px #FFF, 600px 1600px #FFF, 1150px 1000px #FFF,
-    350px 700px #FFF, 1900px 200px #FFF, 700px 1200px #FFF, 1350px 1800px #FFF, 50px 450px #FFF,
-    1450px 1100px #FFF, 200px 1900px #FFF, 1600px 500px #FFF, 450px 1550px #FFF, 1050px 250px #FFF,
-    1700px 150px #FFF, 750px 800px #FFF, 1300px 1750px #FFF, 300px 550px #FFF, 1550px 1250px #FFF,
-    850px 100px #FFF, 1950px 1650px #FFF, 500px 750px #FFF, 1100px 1400px #FFF, 150px 350px #FFF,
-    1800px 1950px #FFF, 650px 900px #FFF, 1250px 200px #FFF, 400px 1750px #FFF, 1700px 50px #FFF,
-    900px 1600px #FFF, 100px 1100px #FFF, 1450px 450px #FFF, 250px 1850px #FFF, 800px 650px #FFF,
-    1650px 1550px #FFF, 550px 50px #FFF, 1200px 1300px #FFF, 400px 950px #FFF, 1850px 1150px #FFF,
-    950px 550px #FFF, 150px 1700px #FFF, 1750px 300px #FFF, 600px 1800px #FFF, 1150px 750px #FFF,
-    350px 1250px #FFF, 1900px 900px #FFF, 700px 400px #FFF, 1350px 150px #FFF, 50px 1450px #FFF,
-    1450px 900px #FFF, 200px 150px #FFF, 1600px 1200px #FFF, 450px 350px #FFF, 1050px 1800px #FFF,
-    1700px 700px #FFF, 750px 100px #FFF, 1300px 950px #FFF, 300px 1450px #FFF, 1550px 500px #FFF,
-    850px 1800px #FFF, 1950px 750px #FFF, 500px 300px #FFF, 1100px 1650px #FFF, 150px 850px #FFF,
-    1800px 250px #FFF, 650px 1400px #FFF, 1250px 550px #FFF, 400px 100px #FFF, 1700px 1000px #FFF,
-    1980px 1234px #FFF, 123px 456px #FFF, 789px 102px #FFF, 1999px 1999px #FFF, 1px 1px #FFF,
-    10px 10px #FFF, 20px 20px #FFF, 30px 30px #FFF, 40px 40px #FFF, 50px 50px #FFF,
-    100px 100px #FFF, 200px 200px #FFF, 300px 300px #FFF, 400px 400px #FFF, 500px 500px #FFF;
-  animation: animStar 50s linear infinite;
+.navbar a:hover::after {
+    width: 100%;
 }
 
-#stars:after {
-  content: " ";
-  position: absolute;
-  top: 2000px;
-  width: 1px;
-  height: 1px;
-  background: transparent;
-  /* Coordenadas duplicadas para el bucle */
-  box-shadow: 
-    1480px 1867px #FFF, 1279px 136px #FFF, 1858px 1745px #FFF, 345px 233px #FFF, 842px 1761px #FFF, 
-    200px 450px #FFF, 1600px 750px #FFF, 500px 1200px #FFF, 1000px 100px #FFF, 1950px 1450px #FFF, 
-    750px 1900px #FFF, 1300px 600px #FFF, 450px 150px #FFF, 1800px 1050px #FFF, 300px 1650px #FFF, 
-    1500px 350px #FFF, 650px 1150px #FFF, 1100px 50px #FFF, 1700px 1350px #FFF, 50px 850px #FFF,
-    900px 1950px #FFF, 100px 250px #FFF, 1400px 1700px #FFF, 250px 1250px #FFF, 800px 300px #FFF,
-    1650px 950px #FFF, 550px 1850px #FFF, 1200px 400px #FFF, 400px 1400px #FFF, 1850px 650px #FFF,
-    950px 1500px #FFF, 150px 50px #FFF, 1750px 800px #FFF, 600px 1600px #FFF, 1150px 1000px #FFF,
-    350px 700px #FFF, 1900px 200px #FFF, 700px 1200px #FFF, 1350px 1800px #FFF, 50px 450px #FFF,
-    1450px 1100px #FFF, 200px 1900px #FFF, 1600px 500px #FFF, 450px 1550px #FFF, 1050px 250px #FFF,
-    1700px 150px #FFF, 750px 800px #FFF, 1300px 1750px #FFF, 300px 550px #FFF, 1550px 1250px #FFF,
-    850px 100px #FFF, 1950px 1650px #FFF, 500px 750px #FFF, 1100px 1400px #FFF, 150px 350px #FFF,
-    1800px 1950px #FFF, 650px 900px #FFF, 1250px 200px #FFF, 400px 1750px #FFF, 1700px 50px #FFF,
-    900px 1600px #FFF, 100px 1100px #FFF, 1450px 450px #FFF, 250px 1850px #FFF, 800px 650px #FFF,
-    1650px 1550px #FFF, 550px 50px #FFF, 1200px 1300px #FFF, 400px 950px #FFF, 1850px 1150px #FFF,
-    950px 550px #FFF, 150px 1700px #FFF, 1750px 300px #FFF, 600px 1800px #FFF, 1150px 750px #FFF,
-    350px 1250px #FFF, 1900px 900px #FFF, 700px 400px #FFF, 1350px 150px #FFF, 50px 1450px #FFF,
-    1450px 900px #FFF, 200px 150px #FFF, 1600px 1200px #FFF, 450px 350px #FFF, 1050px 1800px #FFF,
-    1700px 700px #FFF, 750px 100px #FFF, 1300px 950px #FFF, 300px 1450px #FFF, 1550px 500px #FFF,
-    850px 1800px #FFF, 1950px 750px #FFF, 500px 300px #FFF, 1100px 1650px #FFF, 150px 850px #FFF,
-    1800px 250px #FFF, 650px 1400px #FFF, 1250px 550px #FFF, 400px 100px #FFF, 1700px 1000px #FFF,
-    1980px 1234px #FFF, 123px 456px #FFF, 789px 102px #FFF, 1999px 1999px #FFF, 1px 1px #FFF,
-    10px 10px #FFF, 20px 20px #FFF, 30px 30px #FFF, 40px 40px #FFF, 50px 50px #FFF,
-    100px 100px #FFF, 200px 200px #FFF, 300px 300px #FFF, 400px 400px #FFF, 500px 500px #FFF;
+/* HOME */
+.home {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-left: 80px;
 }
 
-/* --- Estrellas Medianas (#stars2) - 50 coordenadas (Velocidad media) --- */
-#stars2 {
-  width: 2px;
-  height: 2px;
-  /* LISTA DE COORDENADAS: 50 coordenadas estáticas */
-  box-shadow: 
-    700px 100px #FFF, 1600px 900px #FFF, 400px 600px #FFF, 100px 1800px #FFF, 1900px 100px #FFF,
-    200px 500px #FFF, 1300px 200px #FFF, 800px 1700px #FFF, 150px 1100px #FFF, 1800px 1900px #FFF,
-    950px 450px #FFF, 350px 1550px #FFF, 1750px 650px #FFF, 1000px 1350px #FFF, 50px 950px #FFF,
-    650px 150px #FFF, 1450px 750px #FFF, 250px 1650px #FFF, 1150px 300px #FFF, 1850px 1250px #FFF,
-    550px 1950px #FFF, 1250px 50px #FFF, 900px 1450px #FFF, 450px 250px #FFF, 1650px 1050px #FFF,
-    750px 50px #FFF, 1400px 1400px #FFF, 250px 800px #FFF, 1000px 1900px #FFF, 1850px 400px #FFF,
-    600px 1500px #FFF, 150px 250px #FFF, 1700px 1600px #FFF, 900px 700px #FFF, 50px 1300px #FFF,
-    1100px 500px #FFF, 1950px 1800px #FFF, 450px 1000px #FFF, 850px 150px #FFF, 1650px 1150px #FFF,
-    300px 1950px #FFF, 1200px 350px #FFF, 1750px 1450px #FFF, 500px 200px #FFF, 1450px 1750px #FFF,
-    200px 1250px #FFF, 950px 650px #FFF, 1600px 100px #FFF, 350px 1850px #FFF, 1050px 850px #FFF;
-  animation: animStar 100s linear infinite;
+.name-big {
+    font-size: 80px;
+    line-height: 75px;
+    font-weight: bold;
 }
 
-#stars2:after {
-  content: " ";
-  position: absolute;
-  top: 2000px;
-  width: 2px;
-  height: 2px;
-  background: transparent;
-  /* Coordenadas duplicadas para el bucle */
-  box-shadow: 
-    700px 100px #FFF, 1600px 900px #FFF, 400px 600px #FFF, 100px 1800px #FFF, 1900px 100px #FFF,
-    200px 500px #FFF, 1300px 200px #FFF, 800px 1700px #FFF, 150px 1100px #FFF, 1800px 1900px #FFF,
-    950px 450px #FFF, 350px 1550px #FFF, 1750px 650px #FFF, 1000px 1350px #FFF, 50px 950px #FFF,
-    650px 150px #FFF, 1450px 750px #FFF, 250px 1650px #FFF, 1150px 300px #FFF, 1850px 1250px #FFF,
-    550px 1950px #FFF, 1250px 50px #FFF, 900px 1450px #FFF, 450px 250px #FFF, 1650px 1050px #FFF,
-    750px 50px #FFF, 1400px 1400px #FFF, 250px 800px #FFF, 1000px 1900px #FFF, 1850px 400px #FFF,
-    600px 1500px #FFF, 150px 250px #FFF, 1700px 1600px #FFF, 900px 700px #FFF, 50px 1300px #FFF,
-    1100px 500px #FFF, 1950px 1800px #FFF, 450px 1000px #FFF, 850px 150px #FFF, 1650px 1150px #FFF,
-    300px 1950px #FFF, 1200px 350px #FFF, 1750px 1450px #FFF, 500px 200px #FFF, 1450px 1750px #FFF,
-    200px 1250px #FFF, 950px 650px #FFF, 1600px 100px #FFF, 350px 1850px #FFF, 1050px 850px #FFF;
+.lastname {
+    color: red;
 }
 
-/* --- Estrellas Grandes (#stars3) - 100 coordenadas (Más lentas) --- */
-#stars3 {
-  width: 3px;
-  height: 3px;
-  /* LISTA DE COORDENADAS: 100 coordenadas estáticas */
-  box-shadow: 
-    1480px 1867px #FFF, 1279px 136px #FFF, 1858px 1745px #FFF, 345px 233px #FFF, 842px 1761px #FFF, 
-    200px 450px #FFF, 1600px 750px #FFF, 500px 1200px #FFF, 1000px 100px #FFF, 1950px 1450px #FFF, 
-    750px 1900px #FFF, 1300px 600px #FFF, 450px 150px #FFF, 1800px 1050px #FFF, 300px 1650px #FFF, 
-    1500px 350px #FFF, 650px 1150px #FFF, 1100px 50px #FFF, 1700px 1350px #FFF, 50px 850px #FFF,
-    900px 1950px #FFF, 100px 250px #FFF, 1400px 1700px #FFF, 250px 1250px #FFF, 800px 300px #FFF,
-    1650px 950px #FFF, 550px 1850px #FFF, 1200px 400px #FFF, 400px 1400px #FFF, 1850px 650px #FFF,
-    950px 1500px #FFF, 150px 50px #FFF, 1750px 800px #FFF, 600px 1600px #FFF, 1150px 1000px #FFF,
-    350px 700px #FFF, 1900px 200px #FFF, 700px 1200px #FFF, 1350px 1800px #FFF, 50px 450px #FFF,
-    1450px 1100px #FFF, 200px 1900px #FFF, 1600px 500px #FFF, 450px 1550px #FFF, 1050px 250px #FFF,
-    1700px 150px #FFF, 750px 800px #FFF, 1300px 1750px #FFF, 300px 550px #FFF, 1550px 1250px #FFF,
-    850px 100px #FFF, 1950px 1650px #FFF, 500px 750px #FFF, 1100px 1400px #FFF, 150px 350px #FFF,
-    1800px 1950px #FFF, 650px 900px #FFF, 1250px 200px #FFF, 400px 1750px #FFF, 1700px 50px #FFF,
-    900px 1600px #FFF, 100px 1100px #FFF, 1450px 450px #FFF, 250px 1850px #FFF, 800px 650px #FFF,
-    1650px 1550px #FFF, 550px 50px #FFF, 1200px 1300px #FFF, 400px 950px #FFF, 1850px 1150px #FFF,
-    950px 550px #FFF, 150px 1700px #FFF, 1750px 300px #FFF, 600px 1800px #FFF, 1150px 750px #FFF,
-    350px 1250px #FFF, 1900px 900px #FFF, 700px 400px #FFF, 1350px 150px #FFF, 50px 1450px #FFF,
-    1450px 900px #FFF, 200px 150px #FFF, 1600px 1200px #FFF, 450px 350px #FFF, 1050px 1800px #FFF,
-    1700px 700px #FFF, 750px 100px #FFF, 1300px 950px #FFF, 300px 1450px #FFF, 1550px 500px #FFF,
-    850px 1800px #FFF, 1950px 750px #FFF, 500px 300px #FFF, 1100px 1650px #FFF, 150px 850px #FFF,
-    1800px 250px #FFF, 650px 1400px #FFF, 1250px 550px #FFF, 400px 100px #FFF, 1700px 1000px #FFF;
-  animation: animStar 150s linear infinite;
+.typing {
+    font-size: 28px;
+    margin-top: 20px;
+    height: 35px;
+    letter-spacing: 1px;
 }
 
-#stars3:after {
-  content: " ";
-  position: absolute;
-  top: 2000px;
-  width: 3px;
-  height: 3px;
-  background: transparent;
-    /* Coordenadas duplicadas para el bucle */
-  box-shadow: 
-    1480px 1867px #FFF, 1279px 136px #FFF, 1858px 1745px #FFF, 345px 233px #FFF, 842px 1761px #FFF, 
-    200px 450px #FFF, 1600px 750px #FFF, 500px 1200px #FFF, 1000px 100px #FFF, 1950px 1450px #FFF, 
-    750px 1900px #FFF, 1300px 600px #FFF, 450px 150px #FFF, 1800px 1050px #FFF, 300px 1650px #FFF, 
-    1500px 350px #FFF, 650px 1150px #FFF, 1100px 50px #FFF, 1700px 1350px #FFF, 50px 850px #FFF,
-    900px 1950px #FFF, 100px 250px #FFF, 1400px 1700px #FFF, 250px 1250px #FFF, 800px 300px #FFF,
-    1650px 950px #FFF, 550px 1850px #FFF, 1200px 400px #FFF, 400px 1400px #FFF, 1850px 650px #FFF,
-    950px 1500px #FFF, 150px 50px #FFF, 1750px 800px #FFF, 600px 1600px #FFF, 1150px 1000px #FFF,
-    350px 700px #FFF, 1900px 200px #FFF, 700px 1200px #FFF, 1350px 1800px #FFF, 50px 450px #FFF,
-    1450px 1100px #FFF, 200px 1900px #FFF, 1600px 500px #FFF, 450px 1550px #FFF, 1050px 250px #FFF,
-    1700px 150px #FFF, 750px 800px #FFF, 1300px 1750px #FFF, 300px 550px #FFF, 1550px 1250px #FFF,
-    850px 100px #FFF, 1950px 1650px #FFF, 500px 750px #FFF, 1100px 1400px #FFF, 150px 350px #FFF,
-    1800px 1950px #FFF, 650px 900px #FFF, 1250px 200px #FFF, 400px 1750px #FFF, 1700px 50px #FFF,
-    900px 1600px #FFF, 100px 1100px #FFF, 1450px 450px #FFF, 250px 1850px #FFF, 800px 650px #FFF,
-    1650px 1550px #FFF, 550px 50px #FFF, 1200px 1300px #FFF, 400px 950px #FFF, 1850px 1150px #FFF,
-    950px 550px #FFF, 150px 1700px #FFF, 1750px 300px #FFF, 600px 1800px #FFF, 1150px 750px #FFF,
-    350px 1250px #FFF, 1900px 900px #FFF, 700px 400px #FFF, 1350px 150px #FFF, 50px 1450px #FFF,
-    1450px 900px #FFF, 200px 150px #FFF, 1600px 1200px #FFF, 450px 350px #FFF, 1050px 1800px #FFF,
-    1700px 700px #FFF, 750px 100px #FFF, 1300px 950px #FFF, 300px 1450px #FFF, 1550px 500px #FFF,
-    850px 1800px #FFF, 1950px 750px #FFF, 500px 300px #FFF, 1100px 1650px #FFF, 150px 850px #FFF,
-    1800px 250px #FFF, 650px 1400px #FFF, 1250px 550px #FFF, 400px 100px #FFF, 1700px 1000px #FFF;
+.role {
+    margin-top: 20px;
+    font-size: 28px;
+    color: red;
+}
+
+/* ABOUT */
+.about-section {
+    padding: 120px 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.about-card {
+    width: 40%;
+    padding: 60px 40px;
+    background: #111;
+    border-radius: 15px;
+    border: 2px solid red;
+    text-align: center;
+}
+
+.cv-btn {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 12px 25px;
+    background: red;
+    color: white;
+    text-decoration: none;
+    border-radius: 10px;
+    transition: 0.3s;
+}
+
+.cv-btn:hover {
+    transform: scale(1.05);
+}
+
+/* TECH STACK */
+.tech-section {
+    padding: 100px 40px;
+    text-align: center;
+}
+
+.tech-grid {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 40px;
+    flex-wrap: wrap;
+}
+
+.tech-card {
+    width: 300px;
+    background: #111;
+    padding: 30px;
+    border-radius: 15px;
+    border: 2px solid red;
+}
+
+.tech-card ul {
+    list-style: none;
+    margin-top: 15px;
+}
+
+.tech-card li {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.tech-card img {
+    width: 24px;
+    height: 24px;
+}
+
+/* PROJECTS */
+.projects-section {
+    padding: 100px 40px;
+    text-align: center;
+}
+
+.projects-grid {
+    margin-top: 40px;
+    display: flex;
+    gap: 30px;
+    justify-content: center;
+}
+
+.project-card {
+    width: 300px;
+    background: black;
+    padding: 20px;
+    border-radius: 15px;
+    border: 2px solid red;
+}
+
+.project-img img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+
+/* CONTACT */
+.contact-section {
+    display: flex;
+    padding: 100px 40px;
+    justify-content: center;
+    gap: 80px;
+}
+
+.contact-card {
+    width: 350px;
+    padding: 30px;
+    background: #111;
+    border-radius: 15px;
+    border: 2px solid red;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.contact-card input,
+.contact-card textarea {
+    padding: 12px;
+    border-radius: 8px;
+    border: none;
+}
+
+.contact-card button {
+    padding: 12px;
+    background: red;
+    color: white;
+    border-radius: 8px;
+    border: none;
+    font-size: 16px;
+}
+
+footer {
+    text-align: center;
+    padding: 30px;
+    font-size: 14px;
+}
+
+/* SCROLLBAR */
+::-webkit-scrollbar {
+    width: 10px;
+}
+::-webkit-scrollbar-thumb {
+    background: red;
+    border-radius: 10px;
 }

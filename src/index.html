@@ -1,39 +1,129 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Portfolio</title>
     <link rel="stylesheet" href="style.css">
-    <link rel="icon" type="image/png" href="favicon.png"/>
-    <title>Portfolio</title>
-    <link href='https://fonts.googleapis.com/css?family=Lato:300,400,700' rel='stylesheet' type='text/css'>
 </head>
 <body>
-<div id="stars"></div>
-    <div id="stars2"></div>
-    <div id="stars3"></div>
 
-<section id="home">
-    
-    <div class="header">
-        <h1>nb.dev</h1>
-        <div class="nav-buttons">
-            <h2>HOME</h2>
-            <h2>ABOUT</h2>
-            <h2>PROJECTS</h2>
-            <h2>CONTACT</h2>
+    <nav class="navbar">
+        <ul>
+            <li><a href="#home">HOME</a></li>
+            <li><a href="#about">ABOUT</a></li>
+            <li><a href="#techstack">TECH STACK</a></li>
+            <li><a href="#projects">PROJECTS</a></li>
+            <li><a href="#contact">CONTACT</a></li>
+        </ul>
+    </nav>
+
+    <section id="home" class="home">
+        <h1 class="name-big">
+            Nicolas <br><span class="lastname">Blasco</span>
+        </h1>
+        <h2 class="typing"></h2>
+        <p class="role">Front-Developer</p>
+    </section>
+
+    <section id="about" class="about-section">
+        <div class="about-card">
+            <h2>About Me</h2><br>
+            <p>Hola, mundo! Soy nico. Estudiante de 2º de DAW especializado en Front-End development. Me gusta crear interfaces rápidas, limpias y modernas. Trabajo con HTML, CSS, JS, frameworks y diseño responsive.</p>
+            <a href="https://drive.google.com" target="_blank" class="cv-btn">VER CV</a>
         </div>
-    </div>
-    
-    
-    <div id="title">
-        <span>NICOLAS BLASCO</span>
-        <br>
-        <span>FRONT-END DEVELOPER</span>
-    </div>
-</section>
+    </section>
 
+    <section id="techstack" class="tech-section">
+        <h2>Tech Stack</h2>
+        <div class="tech-grid">
+            <div class="tech-card">
+                <h3>Frontend</h3>
+                <p>Building responsive and dynamic user interfaces</p>
+                <ul>
+                    <li><img src="logos/html5.png" alt="HTML5"><span>HTML5</span></li>
+                    <li><img src="logos/css3.png" alt="CSS3"><span>CSS3</span></li>
+                    <li><img src="logos/js.png" alt="JavaScript"><span>JavaScript</span></li>
+                    <li><img src="logos/react.png" alt="React.js"><span>React.js</span></li>
+                    <li><img src="logos/tailwind.png" alt="TailWind CSS"><span>TailWind CSS</span></li>
+                    <li><img src="logos/ts.png" alt="TypeScript"><span>TypeScript</span></li>
+                </ul>
+            </div>
+            <div class="tech-card">
+                <h3>DevOps</h3>
+                <p>Deployment, CI/CD, and server management</p>
+                <ul>
+                    <li><img src="logos/git.png" alt="Git"><span>Git</span></li>
+                    <li><img src="logos/github.png" alt="Github"><span>GitHub</span></li>
+                    <li><img src="logos/postman.png" alt="Postman"><span>Postman</span></li>
+                </ul>
+            </div>
+            <div class="tech-card">
+                <h3>Backend</h3>
+                <p>Creating robust APIs and server-side applications</p>
+                <ul>
+                    <li><img src="logos/nodejs.png" alt="Node.js"><span>Node.js</span></li>
+                    <li><img src="logos/express.png" alt="Express.js"><span>Express.js</span></li>
+                    <li><img src="logos/jwt.png" alt="JWT"><span>JWT</span></li>
+                </ul>
+            </div>
+        </div>
+    </section>
 
-    
+    <section id="projects" class="projects-section">
+        <h2>Projects</h2>
+        <div class="projects-grid">
+            <div class="project-card">
+                <div class="project-img" id="project1">
+                    <img src="images/Kaizen.jpg" alt="TFG: Kaizen Recambios WEB">
+                </div>
+                <br><h3>TFG: Kaizen Recambios WEB</h3><br>
+                <p>Web de Recambios de Coche, modo usuario y administrador, buscador por matrícula y más funciones.</p>
+                <span class="tech">HTML • CSS • JS • NODEJS • EXPRESS • POSTGRESQL</span>
+            </div>
+
+            <div class="project-card">
+                <div class="project-img" id="project2">
+                    <img src="images/nodolab.png" alt="NodoLab">
+                </div>
+                <br><h3>NodoLab</h3><br>
+                <p>Aplicación completa de coworking con frontend y backend, gestión de espacios, reservas, usuarios y administración.</p>
+                <span class="tech">REACT • TAILWINDCSS • JAVASCRIPT • NODEJS • EXPRESS • POSTGRESQL</span>
+            </div>
+
+            <div class="project-card">
+                <div class="project-img" id="project3">
+                    <img src="images/fuerzabotanica.png" alt="Fuerza Botánica">
+                </div>
+                <br><h3>Fuerza Botánica</h3><br>
+                <p>Proyecto visual centrado en una experiencia estética limpia y minimalista.</p>
+                <span class="tech">HTML • CSS</span>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="contact-section">
+        <div class="contact-left">
+            <h2>Contacto:</h2><br>
+            <strong>Nicolas Blasco</strong><br><br>
+            <p><strong>Correo:</strong> nicolaslol22@gmail.com</p><br>
+            <p><strong>Tlf:</strong> 612 345 987</p><br>
+            <p><strong>Localidad:</strong> Zaragoza</p><br>
+        </div>
+
+        <form class="contact-card">
+            <input type="text" placeholder="Nombre" required />
+            <input type="email" placeholder="Correo electrónico" required />
+            <input type="text" placeholder="Asunto" required />
+            <textarea placeholder="Mensaje"></textarea>
+            <button type="submit">Enviar Mensaje</button>
+        </form>
+    </section>
+
+    <footer>
+        ©2025 NBlasco
+    </footer>
+
+    <script src="scripts.js"></script>
 </body>
 </html>
